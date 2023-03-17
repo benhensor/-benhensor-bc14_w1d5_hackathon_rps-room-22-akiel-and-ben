@@ -2,11 +2,11 @@
 
 // task 1
 
-// 
+//let playerMove = prompt('Choose rock, paper or scissors');
+//let computerMove = rockPaperScissors[computerChoice()];
+//let scoreCount = 0;
 
-let playerMove = prompt('Choose rock, paper or scissors');
-let computerMove = 'paper';
-let scoreCount = 0;
+// task 2
 
 /*
 // Rock combinations
@@ -50,10 +50,25 @@ if (playerMove === 'paper' && computerMove === 'scissors') {
 
 */
 
+// task 3
+
+let playerMove = prompt('Choose rock, paper or scissors');
+let computerMove = rockPaperScissors[computerChoice()];
+let scoreCount = 0;
+
+// task 4
+
+let rockPaperScissors = ['rock', 'paper', 'scissors'];
+
+function computerChoice() {
+  let randomNumber = Math.floor(Math.random() * 3);
+  return randomNumber;
+}
+
 function getWinner(player, computer) {
   // Rock combinations
   let scoreCount = 0;
-  
+
 if (player === 'rock' && computer === 'rock') {
   scoreCount = scoreCount +0;
 }
@@ -95,11 +110,29 @@ if (player === 'paper' && computer === 'scissors') {
 return scoreCount;
 }
 
-
 let result = getWinner(playerMove, computerMove);
 
+// task 5
+
+let gameLoop = true;
+
+while (gameLoop === true) {
+  result;
+  alert(result);
+  gameLoop = confirm("Press OK to Play Again!");
+}
+
+
+console.log(playerMove);
+console.log(computerMove);
 console.log(result);
-alert(result)
+
+
+
+
+
+
+
 
 
 
