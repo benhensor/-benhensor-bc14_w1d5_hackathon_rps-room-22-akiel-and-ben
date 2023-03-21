@@ -52,80 +52,68 @@ if (playerMove === 'paper' && computerMove === 'scissors') {
 
 // task 3
 
-let playerMove = prompt('Choose rock, paper or scissors');
-let computerMove = rockPaperScissors[computerChoice()];
+
+
+let rockPaperScissors = ['rock', 'paper', 'scissors'];
+
+
 let scoreCount = 0;
 
 // task 4
 
-let rockPaperScissors = ['rock', 'paper', 'scissors'];
+
 
 function computerChoice() {
   let randomNumber = Math.floor(Math.random() * 3);
   return randomNumber;
 }
 
-function getWinner(player, computer) {
-  // Rock combinations
-  let scoreCount = 0;
+function getWinner(playerTurn, computerTurn) {
 
-if (player === 'rock' && computer === 'rock') {
-  scoreCount = scoreCount +0;
+  if (computerTurn == playerTurn) return 0;
+  
+  const winningCombinations = {
+    rock: "scissors",
+    scissors: "paper",
+    paper: "rock"
+  }
+
+  if (winningCombinations[playerTurn] == computerTurn) return 1;
+  return -1;
+
 }
 
-if (player === 'rock' && computer === 'paper') {
-  scoreCount--;
-}
 
-if (player === 'rock' && computer === 'scissors') {
-   scoreCount++;
-}
-
-// scissor combinations
-if (player === 'scissors' && computer === 'rock') {
-  scoreCount--;
-}
-
-if (player === 'scissors' && computer === 'paper') {
-  scoreCount++;
-}
-
-if (player === 'scissors' && computer === 'scissors') {
-  scoreCount = scoreCount +0;
-}
-
-// paper combinations
-if (player === 'paper' && computer === 'rock') {
-  scoreCount++;
-}
-
-if (player === 'paper' && computer === 'paper') {
- scoreCount = scoreCount +0;
-}
-
-if (player === 'paper' && computer === 'scissors') {
-  scoreCount++;
-}
-
-return scoreCount;
-}
-
-let result = getWinner(playerMove, computerMove);
 
 // task 5
 
 let gameLoop = true;
 
-while (gameLoop === true) {
-  result;
-  alert(result);
+while (gameLoop) {
+  // get the players turn
+  let playerMove = prompt('Choose rock, paper or scissors');
+  console.log(playerMove)
+
+  // get the computers turn
+  let computerMove = rockPaperScissors[computerChoice()];
+  console.log(computerMove)
+
+  // See who wins
+  let result = getWinner(playerMove, computerMove);
+  console.log(result)
+
+  // Alert winner
+  alert(result == 1 ? "Player wins!" ? result == 0 : "It's a draw" : "Computer wins!");
+
+
+  // Update global score
+  scoreCount += result
+
+  // Play again
+  
   gameLoop = confirm("Press OK to Play Again!");
 }
 
-
-console.log(playerMove);
-console.log(computerMove);
-console.log(result);
 
 
 
